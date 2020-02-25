@@ -115,7 +115,17 @@ Pretty dashboard
     :config
     (dashboard-setup-startup-hook)
     (setf dashboard-items '((recents . 7) (projects . 3)))
-    (setf dashboard-banner-logo-title "Emacs do Vicente"))
+    (setf dashboard-banner-logo-title "Emacs do Vicente")
+    (setf dashboard-set-navigator t)
+    (setf dashboard-set-file-icons t)
+    (setf dashboard-set-heading-icons t))
+#+end_src
+
+* All the Icons
+Pretty icons for files, you also need to run all-the-icons-install-fonts
+#+begin_src emacs-lisp :tangle yes
+  (use-package all-the-icons
+    :ensure t)
 #+end_src
 
 * Magit
