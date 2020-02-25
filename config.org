@@ -6,7 +6,6 @@
 
 * Info
 My first emacs config, loosely based on [[https://github.com/daedreth/UncleDavesEmacs][UncleDave's emacs]]. 
-
 Might switch to doom-emacs or evil mode if I'm feeling cute.
 
 I currently use i3wm.
