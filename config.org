@@ -35,16 +35,16 @@ Keeping yourself organised
 
 ** Org src on the same window
 #+begin_src emacs-lisp :tangle yes
-  (setf org-src-window-setup 'current-window)
+  (setq org-src-window-setup 'current-window)
 #+end_src
 
 * Ido
 Improves searching considerably
 ** Enable Ido Mode
 #+begin_src emacs-lisp :tangle yes
-  (setf ido-enable-flex-matching t)
-  (setf ido-create-new-buffer 'always)
-  (setf ido-everywhere t)
+  (setq ido-enable-flex-matching t)
+  (setq ido-create-new-buffer 'always)
+  (setq ido-everywhere t)
   (ido-mode 1)
 #+end_src
 
@@ -63,8 +63,8 @@ Auto completion
     :ensure t
     :init (add-hook 'after-init-hook 'global-company-mode)
     :config
-    (setf company-idle-delay 0)
-    (setf company-minimum-prefix-length 3)
+    (setq company-idle-delay 0)
+    (setq company-minimum-prefix-length 3)
     (define-key company-active-map (kbd "M-n") nil)
     (define-key company-active-map (kbd "M-p") nil)
     (define-key company-active-map (kbd "C-n") #'company-select-next)
@@ -109,16 +109,16 @@ Easy pretty project interface (Searching within projects)
 * Dashboard
 Pretty dashboard
 #+begin_src emacs-lisp :tangle yes
-  (setf inhibit-startup-message t)
+  (setq inhibit-startup-message t)
   (use-package dashboard
     :ensure t
     :config
     (dashboard-setup-startup-hook)
-    (setf dashboard-items '((recents . 7) (projects . 3)))
-    (setf dashboard-banner-logo-title "Emacs do Vicente")
-    (setf dashboard-set-navigator t)
-    (setf dashboard-set-file-icons t)
-    (setf dashboard-set-heading-icons t))
+    (setq dashboard-items '((recents . 7) (projects . 3)))
+    (setq dashboard-banner-logo-title "Emacs do Vicente")
+    (setq dashboard-set-navigator t)
+    (setq dashboard-set-file-icons t)
+    (setq dashboard-set-heading-icons t))
 #+end_src
 
 * All the Icons
@@ -237,7 +237,7 @@ Searches by char on screen
 
 ** UTF-8 enconding
 #+begin_src emacs-lisp :tangle yes
-  (setf locale-coding-system 'utf-8)
+  (setq locale-coding-system 'utf-8)
   (set-terminal-coding-system 'utf-8)
   (set-keyboard-coding-system 'utf-8)
   (set-selection-coding-system 'utf-8)
@@ -246,17 +246,17 @@ Searches by char on screen
 ** Random Qol
 *** Ignore Bell
 #+begin_src emacs-lisp :tangle yes
-(setf ring-bell-function 'ignore)
+(setq ring-bell-function 'ignore)
 #+end_src
 
 *** Less obnoxious scroll
 #+begin_src emacs-lisp :tangle yes
-(setf scroll-conservatively 100)
+(setq scroll-conservatively 100)
 #+end_src
 
 *** Enable disabled commands
 #+begin_src emacs-lisp :tangle yes
-  (setf disabled-command-function nil)
+  (setq disabled-command-function nil)
 #+end_src
 
 *** Loads this config
@@ -284,7 +284,7 @@ Searches by char on screen
 *** Sets ibuffer and expert mode
 #+begin_src emacs-lisp :tangle yes
   (global-set-key (kbd "C-x b") 'ibuffer)
-  (setf ibuffer-expert t)
+  (setq ibuffer-expert t)
 #+end_src
 
 *** Sets ido-buffer
@@ -298,8 +298,8 @@ Lisp interpretation mode
   (use-package slime
     :ensure t
     :config
-    (setf inferior-lisp-program "/usr/bin/sbcl")
-    (setf slime-contribs '(slime-fancy)))
+    (setq inferior-lisp-program "/usr/bin/sbcl")
+    (setq slime-contribs '(slime-fancy)))
 
   (use-package slime-company
     :ensure t
