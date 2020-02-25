@@ -1,1 +1,1 @@
-[[file:config.org][config.org]]
+[[#file:config.org][config.org]]
