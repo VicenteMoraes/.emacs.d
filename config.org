@@ -277,6 +277,7 @@ Lisp interpretation mode
 #+end_src
 
 * Python
+Simple auto-completion for python with jedi
 #+begin_src emacs-lisp :tangle yes
   (use-package company-jedi
     :ensure t

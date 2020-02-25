@@ -11,6 +11,7 @@
   (package-install 'use-package))
 
 ;; Packages
+(require 'use-package)
 (use-package org
   :ensure t)
 
