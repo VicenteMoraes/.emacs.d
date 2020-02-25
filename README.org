@@ -1,7 +1,8 @@
+#+STARTUP: overview
 #+TITLE: My .emacs.d
 #+AUTHOR: [[https://github.com/VicenteMoraes][VicenteMoraes]]
 
-[[./images/dashboard_screenshot.png][My Dashboard]]
+[[./images/dashboard_screenshot.png]]
 
 * Info
 My first emacs config, loosely based on [[https://github.com/daedreth/UncleDavesEmacs][UncleDave's emacs]]. 
@@ -20,4 +21,4 @@ Just install [[http://www.sbcl.org/][sbcl]] and [[https://www.quicklisp.org/beta
 
 * Screenshot
 
-[[./images/smtp.png][Python]]
+[[./images/smtp.png]]
