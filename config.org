@@ -122,10 +122,18 @@ Pretty dashboard
 #+end_src
 
 * All the Icons
-Pretty icons for files, you also need to run all-the-icons-install-fonts
+Pretty icons for files, you also need to run all-the-icons-install-fonts.
 #+begin_src emacs-lisp :tangle yes
   (use-package all-the-icons
     :ensure t)
+#+end_src
+
+* Doom-modeline
+Substitute for the kinda crappy default one.
+#+begin_src emacs-lisp :tangle yes
+  (use-package doom-modeline
+    :ensure t
+    :init (doom-modeline-mode 1))
 #+end_src
 
 * Magit
