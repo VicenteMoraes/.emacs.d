@@ -184,12 +184,20 @@ Searches by char on screen
   (global-set-key (kbd "RET") 'reindent-then-newline-and-indent)
 #+end_src
 
+*** Sets backward-kill-sexp to C-M-DEL
+#+begin_src emacs-lisp :tangle yes
+  (global-set-key (kbd "C-M-DEL") 'backward-kill-sexp)
+#+end_src
 ** Utility
 *** Always show matching parenthesis
 #+begin_src emacs-lisp :tangle yes
 (show-paren-mode 1)
 #+end_src
 
+*** Text wrapping
+#+begin_src emacs-lisp :tangle yes
+  (setq global-visual-line-mode t)
+#+end_src
 ** Electric key pairs
 #+begin_src emacs-lisp :tangle yes
   (setq electric-pair-pairs '(
@@ -267,6 +275,10 @@ Searches by char on screen
   (setq disabled-command-function nil)
 #+end_src
 
+*** Disable C-z
+#+begin_src emacs-lisp :tangle yes
+  (global-set-key (kbd "C-z") nil)
+#+end_src
 *** Loads this config
 #+begin_src emacs-lisp :tangle yes
   (defun load-my-org-config ()
@@ -317,6 +329,7 @@ Lisp interpretation mode
 #+end_src
 
 * Python
+** Company auto-completion
 Simple auto-completion for python with jedi
 #+begin_src emacs-lisp :tangle yes
   (use-package company-jedi
