@@ -1,8 +1,9 @@
-#+STARTUP: overview
 #+TITLE: Emacs Init Config in Org Mode
 #+AUTHOR: [[https://github.com/VicenteMoraes][VicenteMoraes]]
 
+* Dashboard screenshot
 [[./images/dashboard_screenshot.png]]
+
 
 * Info
 My first emacs config, loosely based on [[https://github.com/daedreth/UncleDavesEmacs][UncleDave's emacs]]. 
@@ -22,7 +23,7 @@ Just install [[http://www.sbcl.org/][sbcl]] and [[https://www.quicklisp.org/beta
 
 * Screenshot
 
-[[./images/smtp.png]]
+[[./images/python.png]]
 
 * Org
 Keeping yourself organised
