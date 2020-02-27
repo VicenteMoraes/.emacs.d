@@ -136,6 +136,12 @@ Substitute for the kinda crappy default one.
     :init (doom-modeline-mode 1))
 #+end_src
 
+** Display time and battery on modeline
+#+begin_src emacs-lisp :tangle yes
+  (display-time-mode 1)
+  (display-battery-mode 1)
+#+end_src
+
 * Magit
 Git
 #+begin_src emacs-lisp :tangle yes
@@ -219,7 +225,6 @@ Searches by char on screen
 ** Globals
 #+begin_src emacs-lisp :tangle yes
   (global-hl-line-mode t)
-  (global-display-line-numbers-mode)
   (global-subword-mode 1)
 #+end_src
 
