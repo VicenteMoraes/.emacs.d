@@ -165,6 +165,13 @@ Searches by char on screen
     ("C->" . avy-goto-line))
 #+end_src
 
+* Hungry Delete
+Deletes all whitespace it can
+#+begin_src emacs-lisp :tangle yes
+  (use-package hungry-delete
+    :ensure t
+    :config (global-hungry-delete-mode))
+#+end_src
 * Text
 ** Keybinds
 *** Set begin_src macro for org mode to <C-c> src
