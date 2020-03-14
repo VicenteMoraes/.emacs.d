@@ -257,12 +257,6 @@ Deletes all whitespace it can
     (load-theme 'seoul256 t))
 #+end_src
 
-*** Pretty symbols
-#+begin_src emacs-lisp :tangle yes
-  (use-package pretty-mode
-    :ensure t
-    :config (global-pretty-mode t))
-#+end_src
 
 ** UTF-8 enconding
 #+begin_src emacs-lisp :tangle yes
