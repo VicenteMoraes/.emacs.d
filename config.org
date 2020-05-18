@@ -258,6 +258,12 @@ Deletes all whitespace it can
     (load-theme 'seoul256 t))
 #+end_src
 
+** Autosaves
+*** Set backups to .emacs.d/backups
+#+begin_src emacs-lisp :tangle yes
+  (setq backup-directory-alist
+	`((".*" . ,(concat user-emacs-directory "backups"))))
+#+end_src
 
 ** UTF-8 enconding
 #+begin_src emacs-lisp :tangle yes
