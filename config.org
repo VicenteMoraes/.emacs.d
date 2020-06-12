@@ -398,3 +398,8 @@ Simple auto-completion for python with jedi
     (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
 #+end_src
 
+* Haskell
+#+begin_src emacs-lisp :tangle yes
+  (use-package haskell-mode
+    :ensure t)
+#+end_src

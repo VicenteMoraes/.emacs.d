@@ -25,9 +25,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(flycheck-haskell-runghc-command (quote ("/usr/bin/runghc-8.10.1" "--" "-i" "-dynamic")))
  '(package-selected-packages
    (quote
-    (flycheck company-irony company-c-headers flycheck-clang-analyzer hungry-delete doom-modeline all-the-icons avy company-jedi slime-company slime company sudo-edit magit dashboard async pretty-mode projectile org org-mode which-key seoul256-theme use-package))))
+    (haskell-mode flycheck company-irony company-c-headers flycheck-clang-analyzer hungry-delete doom-modeline all-the-icons avy company-jedi slime-company slime company sudo-edit magit dashboard async pretty-mode projectile org org-mode which-key seoul256-theme use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
