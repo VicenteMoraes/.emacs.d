@@ -263,6 +263,7 @@ Deletes all whitespace it can
 #+begin_src emacs-lisp :tangle yes
   (setq backup-directory-alist
 	`((".*" . ,(concat user-emacs-directory "backups"))))
+  (setq make-backup-files nil)
 #+end_src
 
 ** UTF-8 enconding
@@ -399,7 +400,128 @@ Simple auto-completion for python with jedi
 #+end_src
 
 * Haskell
+Haskell Mode for development
 #+begin_src emacs-lisp :tangle yes
   (use-package haskell-mode
-    :ensure t)
+    :ensure t
+    :config (setq haskell-process-type 'auto))
 #+end_src
+
+* Latex
+** Document Previews
+#+begin_src emacs-lisp :tangle yes
+  (use-package latex-preview-pane
+    :ensure t
+    :config
+    (add-hook 'TeX-mode-hook 'latex-preview-pane-mode))
+#+end_src
+
+** Sets auctex and auctex completion for company
+#+begin_src emacs-lisp :tangle yes
+  (defun tex-company-init ()
+    (setq-local company-backends '((company-auctex company-dabbrev-code)))
+    (company-auctex-init))
+  
+  (use-package company-auctex
+    :ensure t
+    :config
+    (require 'company)
+    (add-hook 'TeX-mode-hook 'tex-company-init))
+#+end_src
+
+** Keybinds
+*** Defines local keybinds
+    :PROPERTIES:
+    :ORDERED:  t
+    :END:
+#+begin_src emacs-lisp :tangle yes
+  (defun tex-par ()
+    (interactive)
+    (insert "\\par "))
+
+  (defun tex-large ()
+    (interactive)
+    (insert "\\large "))
+
+  (defun tex-bold ()
+    (interactive)
+    (insert "\\textbf{} ")
+    (forward-char -2))
+
+  (defun tex-italic ()
+    (interactive)
+    (insert "\\textit{} ")
+    (forward-char -2))
+
+  (defun tex-emph ()
+    (interactive)
+    (insert "\\emph{} ")
+    (forward-char -2))
+
+  (defun tex-underline ()
+    (interactive)
+    (insert "\\underline{} ")
+    (forward-char -2))
+
+  (defun tex-section ()
+    (interactive)
+    (insert "\\section{} ")
+    (forward-char -2))
+
+  (defun tex-newpage ()
+    (interactive)
+    (insert "\\newpage "))
+
+  (defun tex-math ()
+    (interactive)
+    (insert "\\)"))
+
+  (defun copy-twice-then-format (format-text str)
+    (format format-text str str))
+
+  (defun tex-begin-name (name)
+    (interactive)
+    (insert (copy-twice-then-format "\\begin{%s}\n\n\\end{%s}" name))
+    (forward-line -1))
+
+  (defun tex-begin-any ()
+    (interactive)
+    (tex-begin-name (read-string "Enter begin prompt: ")))
+
+  (defun tex-begin-center ()
+    (interactive)
+    (tex-begin-name "center"))
+
+  (defun tex-begin-flush ()
+    (interactive)
+    (tex-begin-name (read-string "Enter flush direction: ")))
+
+  (defun tex-itemize ()
+    (interactive)
+    (tex-begin-name "itemize"))
+
+  (defun tex-begin-listing ()
+    (insert "\begin{lstlisting}[language=Lisp, caption=Caption, tabsize=2, breaklines=true, columns=flex, numbers=left, numberstyle=\tiny]\n\n\end{lstlisting}")
+    (forward-line -1))
+#+end_src
+
+*** Sets local bindings
+#+begin_src emacs-lisp :tangle yes
+  (defun tex-bindings ()
+    (local-set-key (kbd "C-z p") 'tex-par)
+    (local-set-key (kbd "C-z l") 'tex-large)
+    (local-set-key (kbd "C-z b") 'tex-bold)
+    (local-set-key (kbd "C-z i") 'tex-italic)
+    (local-set-key (kbd "C-z e") 'tex-emph)
+    (local-set-key (kbd "C-z u") 'tex-underline)
+    (local-set-key (kbd "C-z s") 'tex-section)
+    (local-set-key (kbd "C-z n") 'tex-newpage)
+    (local-set-key (kbd "C-c ba") 'tex-begin-any)
+    (local-set-key (kbd "C-c bc") 'tex-begin-center)
+    (local-set-key (kbd "C-c bf") 'tex-begin-flush)
+    (local-set-key (kbd "C-c it") 'tex-itemize)
+    (local-set-key (kbd "C-c fp") 'tex-begin-listing))
+
+  (add-hook 'TeX-mode-hook 'tex-bindings)
+#+end_src
+
