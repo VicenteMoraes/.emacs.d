@@ -193,10 +193,9 @@ Deletes all whitespace it can
   (global-set-key (kbd "M-m") 'beginning-of-line)
 #+end_src
 
-*** Sets RET to (reindent-then-newline-and-indent)
+*** Set prog-indent-sexp to C-M-z
 #+begin_src emacs-lisp :tangle yes
-  (global-set-key (kbd "RET") nil)
-  (global-set-key (kbd "RET") 'reindent-then-newline-and-indent)
+  (global-set-key (kbd "C-M-z") 'prog-indent-sexp)
 #+end_src
 
 *** Sets backward-kill-sexp to C-M-DEL
@@ -328,7 +327,7 @@ Deletes all whitespace it can
 #+end_src
 
 * Slime
-Lisp interpretation mode
+** Lisp interpretation mode
 #+begin_src emacs-lisp :tangle yes
   (use-package slime
     :ensure t
@@ -341,6 +340,11 @@ Lisp interpretation mode
     :init
       (require 'company)
       (slime-setup '(slime-fancy slime-company)))
+#+end_src
+
+** Quicklisp Slime Helper
+#+begin_src emacs-lisp :tangle yes
+  (load (expand-file-name "/usr/lib/quicklisp/slime-helper.el"))
 #+end_src
 
 * Flycheck
@@ -367,7 +371,7 @@ Simple auto-completion for python with jedi
 
 ** Python indent offset
 #+begin_src emacs-lisp :tangle yes
-  (setq python-indent-offset 2)
+  (setq python-indent-offset 4)
 #+end_src
 
 * C-like
