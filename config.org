@@ -326,7 +326,7 @@ Deletes all whitespace it can
   (global-set-key (kbd "C-x C-b") 'ido-switch-buffer)
 #+end_src
 
-* Slime
+* Slime and Common Lisp
 ** Lisp interpretation mode
 #+begin_src emacs-lisp :tangle yes
   (use-package slime
@@ -345,6 +345,16 @@ Deletes all whitespace it can
 ** Quicklisp Slime Helper
 #+begin_src emacs-lisp :tangle yes
   (load (expand-file-name "/usr/lib/quicklisp/slime-helper.el"))
+#+end_src
+
+** Paredit
+#+begin_src emacs-lisp :tangle yes
+  (use-package paredit
+    :ensure t
+    :config
+    (add-hook 'lisp-mode-hook 'paredit-mode)
+    (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
+    (add-hook 'slime-repl-mode-hook 'paredit-mode))
 #+end_src
 
 * Flycheck
@@ -529,3 +539,17 @@ Haskell Mode for development
   (add-hook 'TeX-mode-hook 'tex-bindings)
 #+end_src
 
+* Prolog
+** Prolog Mode
+Sets prolog mode
+#+begin_src emacs-lisp :tangle yes
+  (add-to-list 'load-path "~/home/.emacs.d/prolog")
+  (autoload 'prolog-mode "prolog" "Major mode for editing Prolog programs." t)
+  (add-to-list 'auto-mode-alist '("\\.pl\\'" . prolog-mode))
+#+end_src
+
+** Electric if then else
+From pceprolog.
+#+begin_src emacs-lisp :tangle yes
+  (setq prolog-electric--if-then-else t)
+#+end_src
